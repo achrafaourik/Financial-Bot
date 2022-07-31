@@ -170,5 +170,3 @@ app/results/
 
 # django
 app/*/migrations/*
-
-.idea/
