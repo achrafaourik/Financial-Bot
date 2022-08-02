@@ -24,6 +24,6 @@ echo "Finished migrate"
 #rasa train
 #echo "Finised Rasa Train"
 
-rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
+# rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
 
 exec "$@"

@@ -27,5 +27,7 @@ urlpatterns = [
         'api/docs/',
         SpectacularSwaggerView.as_view(url_name='api-schema'),
         name='api-docs'),
+    path('bot', include("app_chatbot.urls")),
     path('api/user/', include('user.urls')),
+    path('api/banking/', include('banking.urls')),
 ]
