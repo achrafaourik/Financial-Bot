@@ -20,10 +20,14 @@ echo "Starting migrate"
 python manage.py migrate
 echo "Finished migrate"
 
+# python manage.py runserver localhost:8000
+
 #echo "Starting Rasa Train model"
 #rasa train
 #echo "Finised Rasa Train"
 
+
 # rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
+
 
 exec "$@"

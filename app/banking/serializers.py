@@ -1,13 +1,14 @@
+from asyncore import read
 from rest_framework import serializers
 from core.models import BankAccount, Transactions, User
 
 
 class TransactionSerializer(serializers.ModelSerializer):
 
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=False,)
-    account_type = serializers.PrimaryKeyRelatedField(
-        queryset=BankAccount.objects.all(), many=False,
-    )
+    # user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=False,)
+    # account_type = serializers.PrimaryKeyRelatedField(
+    #     queryset=BankAccount.objects.all(), many=False,
+    # )
 
     class Meta:
         model = Transactions
@@ -15,7 +16,7 @@ class TransactionSerializer(serializers.ModelSerializer):
             "id",
             "transaction_date",
             "account_type",
-            "user",
+            # "user",
             "transaction_type",
             "transaction_amount",
         ]
@@ -25,11 +26,12 @@ class BankAccountSerializer(serializers.ModelSerializer):
     """Serializer for Bank account."""
 
     # user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(),many=False,)
-    # account_transactions = TransactionSerializer(many=True, read_only=True, )
+    accounttransactions = TransactionSerializer(many=True, read_only=True, )
+    # trx = serializers.PrimaryKeyRelatedField(queryset=Transactions.objects.all(), many=True)
 
     class Meta:
         model = BankAccount
-        fields = ["id", "date", "account_type", "account_balance"]
+        fields = ["id", "date", "account_type", "account_balance", "accounttransactions"]
         extra_kwargs = {
             "account_balance": {
                 # 'read_only': True,
@@ -40,8 +42,18 @@ class BankAccountSerializer(serializers.ModelSerializer):
         read_only_fields = ["id"]
 
 
-# class BankAccountDetailSerializer(BankAccountSerializer):
-#     """Serializer for bank account detail view."""
+# class BankAccountDetailSerializer(serializers.ModelSerializer):
+#     """Serializer for recipe detail view."""
+#     accounttransactions = TransactionSerializer(many=True, read_only=True, )
 
-#     class Meta(BankAccountSerializer.Meta):
-#         fields = BankAccountSerializer.Meta.fields + ['account_transactions']
+#     class Meta:
+#         model = BankAccount
+#         fields = ["id", "date", "account_type", "account_balance", "accounttransactions"]
+#         extra_kwargs = {
+#             "account_balance": {
+#                 # 'read_only': True,
+#                 "required": True
+#             },
+#             "account_type": {"required": True},
+#         }
+#         read_only_fields = ["id"]
