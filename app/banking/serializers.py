@@ -26,6 +26,25 @@ class BankAccountSerializer(serializers.ModelSerializer):
     """Serializer for Bank account."""
 
     # user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(),many=False,)
+    # accounttransactions = TransactionSerializer(many=True, read_only=True, )
+    # trx = serializers.PrimaryKeyRelatedField(queryset=Transactions.objects.all(), many=True)
+
+    class Meta:
+        model = BankAccount
+        fields = ["id", "date", "account_type", "account_balance"]
+        extra_kwargs = {
+            "account_balance": {
+                # 'read_only': True,
+                "required": True
+            },
+            "account_type": {"required": True},
+        }
+        read_only_fields = ["id"]
+
+
+class BankAccountDetailSerializer(BankAccountSerializer):
+    """Serializer for recipe detail view."""
+    # user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(),many=False,)
     accounttransactions = TransactionSerializer(many=True, read_only=True, )
     # trx = serializers.PrimaryKeyRelatedField(queryset=Transactions.objects.all(), many=True)
 
@@ -40,20 +59,3 @@ class BankAccountSerializer(serializers.ModelSerializer):
             "account_type": {"required": True},
         }
         read_only_fields = ["id"]
-
-
-# class BankAccountDetailSerializer(serializers.ModelSerializer):
-#     """Serializer for recipe detail view."""
-#     accounttransactions = TransactionSerializer(many=True, read_only=True, )
-
-#     class Meta:
-#         model = BankAccount
-#         fields = ["id", "date", "account_type", "account_balance", "accounttransactions"]
-#         extra_kwargs = {
-#             "account_balance": {
-#                 # 'read_only': True,
-#                 "required": True
-#             },
-#             "account_type": {"required": True},
-#         }
-#         read_only_fields = ["id"]
