@@ -1,2 +1,3 @@
-# recipe-app-api
-Recipe API project
+# rasa chatbot project
+
+ongoing rasa chatbot using docker, rasa, nginx, django and postgres.
