@@ -17,12 +17,6 @@ nlu:
     - goodevening
     - good afternoon
 
-- intent: hello_world
-  examples: |
-    - world
-    - the world
-    - to the world
-
 - intent: goodbye
   examples: |
     - cu
@@ -55,43 +49,47 @@ nlu:
     - no way
     - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: create_bank_account
+  examples: |
+    - i want to create an account
+    - create a bank account
+    - make an account
+    - request a [credit](account_type) account
+    - create a [savings](account_type) account
+    - i'm looking to make a [savings](account_type) account
+    - how to create a [credit](account_type)
+    - make accnt
+    - create accont
+
+- intent: chitchat
+  examples: |
+    - can you share your boss with me?
+    - i want to get to know your owner
+    - i want to know the company which designed you
+    - i want to know the company which generated you
+    - i want to know the company which invented you
+    - i want to know who invented you
+    - May I ask who invented you?
+    - please tell me the company who created you
+    - please tell me who created you
+    - tell me more about your creators
+    - tell me more about your founders
+    - Ahoy matey how are you?
+    - are you alright
+    - are you having a good day
+    - Are you ok?
+    - are you okay
+    - Do you feel good?
+    - how are things going
+    - how are things with you?
+    - How are things?
+    - how are you
+    - how are you doing
+    - how are you doing this morning

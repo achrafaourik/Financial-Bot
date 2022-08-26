@@ -20,6 +20,9 @@ echo "Starting migrate"
 python manage.py migrate
 echo "Finished migrate"
 
+pip install spacy
+python -m spacy download en_core_web_md
+
 # python manage.py runserver localhost:8000
 
 #echo "Starting Rasa Train model"
@@ -27,7 +30,7 @@ echo "Finished migrate"
 #echo "Finised Rasa Train"
 
 
-# rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
+rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
 
 
 exec "$@"

@@ -7,9 +7,9 @@ services:
       args:
         - DEV=true
     ports:
-      - "8000:8000"
+      - "9000:8000"
     volumes:
-      - ./app:/app
+      - "./app:/app"
     command: "python manage.py runserver 0.0.0.0:8000"
     env_file:
       - ./.env.dev
@@ -21,6 +21,19 @@ services:
       - dev-db-data:/var/lib/postgresql/data
     env_file:
       - ./.env.db
+  duckling:
+    image: rasa/duckling
+    ports:
+      - "8000:8000"
+  action_server:
+    image: rasa/rasa-sdk:latest
+    depends_on:
+      - app
+    restart: on-failure
+    ports:
+    - "5055:5055"
+    volumes:
+    - "./app/actions:/app/actions"
 
 volumes:
   dev-db-data:

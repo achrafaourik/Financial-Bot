@@ -12,7 +12,18 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: rule action hello world
+- rule: activate account form
   steps:
-  - intent: hello_world
-  - action: action_hello_world
+    - intent: create_bank_account
+    - action: account_form
+    - active_loop: account_form
+
+- rule: submit create account form
+  condition:
+  - active_loop: account_form
+  steps:
+  - action: account_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_account_type

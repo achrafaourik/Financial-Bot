@@ -18,4 +18,5 @@ class NLPView(GenericAPIView):
         message = data['message'].strip(' ')
         r = requests.post('http://localhost:5005/webhooks/rest/webhook', json=data)
         res = json.loads(r.text)
+        print(res)
         return Response(res)

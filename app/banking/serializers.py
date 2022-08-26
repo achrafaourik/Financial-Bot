@@ -1,6 +1,5 @@
-from asyncore import read
 from rest_framework import serializers
-from core.models import BankAccount, Transactions, User
+from core.models import BankAccount, Transactions
 
 
 class TransactionSerializer(serializers.ModelSerializer):
@@ -31,7 +30,12 @@ class BankAccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BankAccount
-        fields = ["id", "date", "account_type", "account_balance"]
+        fields = [
+            "id",
+            #   "date",
+            "account_type",
+            "account_balance",
+        ]
         extra_kwargs = {
             "account_balance": {
                 # 'read_only': True,
@@ -44,13 +48,20 @@ class BankAccountSerializer(serializers.ModelSerializer):
 
 class BankAccountDetailSerializer(BankAccountSerializer):
     """Serializer for recipe detail view."""
+
     # user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(),many=False,)
-    accounttransactions = TransactionSerializer(many=True, read_only=True, )
+    accounttransactions = TransactionSerializer(many=True, read_only=True,)
     # trx = serializers.PrimaryKeyRelatedField(queryset=Transactions.objects.all(), many=True)
 
     class Meta:
         model = BankAccount
-        fields = ["id", "date", "account_type", "account_balance", "accounttransactions"]
+        fields = [
+            "id",
+            "date",
+            "account_type",
+            "account_balance",
+            "accounttransactions",
+        ]
         extra_kwargs = {
             "account_balance": {
                 # 'read_only': True,
