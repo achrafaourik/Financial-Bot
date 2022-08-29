@@ -3,12 +3,15 @@ version: "3.1"
 intents:
   - create_bank_account:
         use_entities: []
+  - account_balance:
+        use_entities: []
   - greet
   - goodbye
   - affirm
   - deny
   - bot_challenge
   - chitchat
+  - inform
 
 
 entities:
@@ -23,8 +26,11 @@ slots:
       entity: account_type
 
 responses:
-  utter_ask_account_type:
+  utter_ask_account_form_account_type:
     - text: "What type of bank account would you like to create?"
+
+  utter_ask_balance_form_account_type:
+    - text: "What type of bank account would you like to see the balance of?"
 
   utter_greet:
   - text: "Hey! How are you?"
@@ -40,6 +46,7 @@ responses:
 
 actions:
 - action_account_type
+- action_check_balance
 
 
 forms:
@@ -48,6 +55,12 @@ forms:
     - chitchat
     required_slots:
       - account_type
+  balance_form:
+    ignored_intents:
+    - chitchat
+    required_slots:
+      - account_type
+
 
 session_config:
   session_expiration_time: 60

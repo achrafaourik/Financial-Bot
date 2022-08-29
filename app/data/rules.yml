@@ -27,3 +27,19 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_account_type
+
+- rule: activate check balance form
+  steps:
+    - intent: account_balance
+    - action: balance_form
+    - active_loop: balance_form
+
+- rule: submit check balance form
+  condition:
+  - active_loop: balance_form
+  steps:
+  - action: balance_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_check_balance

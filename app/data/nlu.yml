@@ -93,3 +93,30 @@ nlu:
     - how are you
     - how are you doing
     - how are you doing this morning
+
+- intent: account_balance
+  examples: |
+    - i want to check the balance of my account
+    - what's my account balance?
+    - how much money do i have ?
+    - what is on my [credit](account_type) account balance
+    - how much do i have on my [savings](account_type) account
+    - i'm looking to see me [savings](account_type) account
+    - show me my [credit](account_type) accounts
+    - can you list my [savings](account_type) accounts
+    - balance
+    - balances please
+    - account balance
+    - what's my remaining balance
+    - show me my accounts
+
+- intent: inform
+  examples: |
+    - [savings](account_type)
+    - [credit](account_type)
+    - my [savings](account_type) account
+    - my balance
+    - full balance
+    - [credit](account_type) account
+    - my [credit](account_type) account
+

@@ -10,6 +10,7 @@
 from typing import Any, Text, Dict, List
 import requests
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 import json
 import time
@@ -60,7 +61,7 @@ class ActionCreateAccountType(Action):
             response = str(json.loads(r.text))
             dispatcher.utter_message(text=response)
 
-        return []
+        return [SlotSet("account_type", None)]
 
 
 class ActionCheckBalance(Action):
@@ -86,4 +87,4 @@ class ActionCheckBalance(Action):
             response = str(json.loads(r.text))
             dispatcher.utter_message(text=response)
 
-        return []
+        return [SlotSet("account_type", None)]
