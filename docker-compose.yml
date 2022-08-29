@@ -8,6 +8,7 @@ services:
         - DEV=true
     ports:
       - "9000:8000"
+      - "5005:5005"
     volumes:
       - "./app:/app"
     command: "python manage.py runserver 0.0.0.0:8000"
@@ -25,15 +26,21 @@ services:
     image: rasa/duckling
     ports:
       - "8000:8000"
-  action_server:
-    image: rasa/rasa-sdk:latest
-    depends_on:
-      - app
-    restart: on-failure
-    ports:
-    - "5055:5055"
-    volumes:
-    - "./app/actions:/app/actions"
+  # action_server:
+  # image: rasa/rasa-sdk:latest
+  #   build:
+  #     context: ./app
+  #     dockerfile: Dockerfile.action
+  #   container_name: action_server
+  #   restart: on-failure
+  #   ports:
+  #   - "5055:5055"
+  #   expose:
+  #   - '5055'
+  #   volumes:
+  #   - "./app/actions:/app/actions"
+  #   command: ["start"]
+
 
 volumes:
   dev-db-data:

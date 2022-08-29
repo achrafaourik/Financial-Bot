@@ -9,6 +9,7 @@ from rest_framework import status, viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+# import django_filters.rest_framework
 
 
 class BankAccountViewSet(viewsets.ModelViewSet):
@@ -18,9 +19,15 @@ class BankAccountViewSet(viewsets.ModelViewSet):
     queryset = BankAccount.objects.all()
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
 
     def get_queryset(self):
         """Retrieve bank accounts for authenticated user."""
+        account_type = self.request.query_params.get('account_type')
+
+        if account_type:
+            self.queryset = self.queryset.filter(account_type=account_type)
+            
         return self.queryset.filter(user=self.request.user).order_by("-date")
 
     def get_serializer_class(self):

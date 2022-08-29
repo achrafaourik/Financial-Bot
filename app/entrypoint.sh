@@ -20,8 +20,7 @@ echo "Starting migrate"
 python manage.py migrate
 echo "Finished migrate"
 
-pip install spacy
-python -m spacy download en_core_web_md
+pip install ./en_core_web_md-3.4.0.tar.gz
 
 # python manage.py runserver localhost:8000
 

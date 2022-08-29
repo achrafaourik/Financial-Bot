@@ -11,6 +11,7 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
+  # url: "http://action-server-test:5055/webhook"
   url: "http://localhost:5055/webhook"
 
 # Tracker store which is used to store the conversations.
