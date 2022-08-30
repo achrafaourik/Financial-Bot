@@ -27,7 +27,7 @@ class BankAccountViewSet(viewsets.ModelViewSet):
 
         if account_type:
             self.queryset = self.queryset.filter(account_type=account_type)
-            
+
         return self.queryset.filter(user=self.request.user).order_by("-date")
 
     def get_serializer_class(self):
@@ -77,7 +77,7 @@ class TransactionsViewSet(viewsets.ModelViewSet):
 
         bank_account = BankAccount.objects.get(user=self.request.user, id=request.data['account_type'])
         transaction_type = request.data['transaction_type']
-        transaction_amount = request.data['transaction_amount']
+        transaction_amount = float(request.data['transaction_amount'])
 
         if bank_account:
             print('found bank account')

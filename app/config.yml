@@ -14,7 +14,9 @@ pipeline:
   - name: FallbackClassifier
     threshold: 0.7
   - name: DucklingEntityExtractor
-    url: http://localhost:8000
+    url: http://duckling:8000
+    dimensions:
+    - amount-of-money
   - name: SpacyNLP
     model: "en_core_web_md"
     case_sensitive: false

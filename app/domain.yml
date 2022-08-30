@@ -5,6 +5,8 @@ intents:
         use_entities: []
   - account_balance:
         use_entities: []
+  - make_transaction:
+        use_entities: []
   - greet
   - goodbye
   - affirm
@@ -16,6 +18,9 @@ intents:
 
 entities:
   - account_type
+  - account_number
+  - transaction_type
+  - amount-of-money
 
 slots:
   account_type:
@@ -24,6 +29,39 @@ slots:
     mappings:
     - type: from_entity
       entity: account_type
+  amount-of-money:
+    type: any
+    influence_conversation: false
+    mappings:
+    - entity: amount-of-money
+      type: from_entity
+      conditions:
+      - active_loop: transaction_form
+        requested_slot: amount-of-money
+    # - intent:
+    #   - inform
+    #   - transaction_form
+    #   type: from_text
+    #   conditions:
+    #   - active_loop: transaction_form
+    #     requested_slot: amount-of-money
+    # - type: from_entity
+    #   entity: amount-of-money
+  account_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: transaction_form
+        requested_slot: account_number
+  transaction_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: transaction_type
+
 
 responses:
   utter_ask_account_form_account_type:
@@ -31,6 +69,15 @@ responses:
 
   utter_ask_balance_form_account_type:
     - text: "What type of bank account would you like to see the balance of?"
+
+  utter_ask_transaction_form_transaction_type:
+    - text: "What type of transaction would you like to make?"
+
+  utter_ask_transaction_form_account_number:
+    - text: "On which account would you like to make the transaction?"
+
+  utter_ask_transaction_form_amount-of-money:
+    - text: "What is the amount of the transaction to be made?"
 
   utter_greet:
   - text: "Hey! How are you?"
@@ -47,6 +94,7 @@ responses:
 actions:
 - action_account_type
 - action_check_balance
+- action_make_transaction
 
 
 forms:
@@ -60,6 +108,13 @@ forms:
     - chitchat
     required_slots:
       - account_type
+  transaction_form:
+    ignored_intents:
+    - chitchat
+    required_slots:
+      - account_number
+      - transaction_type
+      - amount-of-money
 
 
 session_config:

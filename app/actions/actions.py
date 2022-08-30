@@ -22,12 +22,12 @@ def create_user():
         "email": "user@example.com",
         "password": "string",
         "name": "string"}
-    requests.post('http://localhost:8000/api/user/create/', json=test_user)
+    requests.post('http://localhost:9000/api/user/create/', json=test_user)
 
 def generate_token():
     create_user()
 
-    r = requests.post('http://localhost:8000/api/user/token/',
+    r = requests.post('http://localhost:9000/api/user/token/',
                           json={"email": "user@example.com",
                                 "password": "string"})
     token = json.loads(r.text)['token']
@@ -46,20 +46,18 @@ class ActionCreateAccountType(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         account_type = tracker.get_slot('account_type')
-        if account_type == "savings":
-            dispatcher.utter_message(text='Creating a savings account...')
-            data = {"account_type": "savings", "account_balance": 0}
-            r = requests.post('http://localhost:8000/api/banking/accounts/',
-                              json=data, headers={'Authorization': 'Token ' + self.token})
+        if account_type in ["savings", 'credit']:
+            dispatcher.utter_message(text='Creating a {} account...'.format(account_type))
+
+            data = {"account_type": account_type, "account_balance": 0}
+            r = requests.post('http://localhost:9000/api/banking/accounts/',
+                              json=data,
+                              headers={'Authorization': 'Token ' + self.token})
             response = str(json.loads(r.text))
+
             dispatcher.utter_message(text=response)
         else:
-            dispatcher.utter_message(text='Creating a credit account...')
-            data = {"account_type": "credit", "account_balance": 0}
-            r = requests.post('http://localhost:8000/api/banking/accounts/',
-                              json=data, headers={'Authorization': 'Token ' + self.token})
-            response = str(json.loads(r.text))
-            dispatcher.utter_message(text=response)
+            dispatcher.utter_message(text='There is no such account type')
 
         return [SlotSet("account_type", None)]
 
@@ -74,17 +72,56 @@ class ActionCheckBalance(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         account_type = tracker.get_slot('account_type')
-        if account_type == "savings":
-            dispatcher.utter_message(text='Listing savings accounts balances..')
-            r = requests.get('http://localhost:8000/api/banking/accounts/?account_type=savings',
+        if account_type in ["savings", 'credit']:
+            dispatcher.utter_message(
+                text='Listing {} accounts balances..'.format(account_type))
+
+            r = requests.get('http://localhost:9000/api/banking/accounts/?account_type=' + account_type,
                               headers={'Authorization': 'Token ' + self.token})
             response = str(json.loads(r.text))
+
             dispatcher.utter_message(text=response)
         else:
-            dispatcher.utter_message(text='Listing credit accounts balances..')
-            r = requests.get('http://localhost:8000/api/banking/accounts/?account_type=credit',
-                              headers={'Authorization': 'Token ' + self.token})
-            response = str(json.loads(r.text))
-            dispatcher.utter_message(text=response)
+            dispatcher.utter_message(text='There is no such account type')
 
         return [SlotSet("account_type", None)]
+
+
+class ActionMakeTransaction(Action):
+    token = token
+
+    def name(self) -> Text:
+        return "action_make_transaction"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        transaction_amount = float(tracker.get_slot('amount-of-money'))
+        account_number = tracker.get_slot('account_number')
+        transaction_type = tracker.get_slot('transaction_type')
+
+        if transaction_type in ["deposit", 'withdrawal']:
+            dispatcher.utter_message(
+                text='Performing a {} of {}$ on the account N°: {} ...'.format(
+                    transaction_type,
+                    transaction_amount,
+                    account_number))
+
+            data = {"account_type": account_number,
+                    "transaction_type": transaction_type,
+                    "transaction_amount": transaction_amount}
+
+
+            r = requests.post('http://localhost:9000/api/banking/transactions/',
+                              json=data,
+                              headers={'Authorization': 'Token ' + self.token})
+            response = str(json.loads(r.text))
+
+            dispatcher.utter_message(text=response)
+
+        else:
+            dispatcher.utter_message(text='There is no such transaction type')
+
+        return [SlotSet("transaction_type", None),
+                SlotSet("transaction_amount", None),
+                SlotSet("account_number", None)]

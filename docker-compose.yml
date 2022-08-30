@@ -7,11 +7,11 @@ services:
       args:
         - DEV=true
     ports:
-      - "9000:8000"
+      - "9000:9000"
       - "5005:5005"
     volumes:
       - "./app:/app"
-    command: "python manage.py runserver 0.0.0.0:8000"
+    command: "python manage.py runserver 0.0.0.0:9000"
     env_file:
       - ./.env.dev
     depends_on:
@@ -26,6 +26,10 @@ services:
     image: rasa/duckling
     ports:
       - "8000:8000"
+  rasa-x:
+    image: rasa/rasa-x
+    ports:
+      
   # action_server:
   # image: rasa/rasa-sdk:latest
   #   build:

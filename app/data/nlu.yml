@@ -94,6 +94,7 @@ nlu:
     - how are you doing
     - how are you doing this morning
 
+
 - intent: account_balance
   examples: |
     - i want to check the balance of my account
@@ -109,14 +110,40 @@ nlu:
     - account balance
     - what's my remaining balance
     - show me my accounts
+    - balance [credit](account_type)
+    - balance [savings](account_type)
+    - what is my balance in my [savings](account_type) account
+    - my balance [savings](account_type)
+    - my current balance [creidt](account_type) account
+
+
+- intent: make_transaction
+  examples: |
+    - i want to make a transaction
+    - i would like to make a [deposit](transaction_type)
+    - i would like to make a [withdrawal](transaction_type)
+    - i want to [send](transaction_type) 60$ to my [savings](account_type)
+    - can you help make a transaction to my [credit](account_type) account
+    - can i [withdraw](transaction_type) 40 dollars from my [savings](account_type) account
+    - can i [deposit](transaction_type) 10 bucks to my [savings](account_type) account
+    - help me make a transaction to my [credit](account_type) account
+    - show me how to [save](transaction_type) my money
+
 
 - intent: inform
   examples: |
     - [savings](account_type)
     - [credit](account_type)
+    - [deposit](transaction_type)
+    - [withdrawal](transaction_type)
+    - [withdraw](transaction_type)
+    - [save](transaction_type)
     - my [savings](account_type) account
     - my balance
     - full balance
     - [credit](account_type) account
     - my [credit](account_type) account
-
+    - 30$
+    - one hundred dollars
+    - one dollar
+    - 20 bucks

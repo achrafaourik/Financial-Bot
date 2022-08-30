@@ -43,3 +43,20 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_check_balance
+
+
+- rule: activate transaction form
+  steps:
+    - intent: make_transaction
+    - action: transaction_form
+    - active_loop: transaction_form
+
+- rule: submit transaction form
+  condition:
+  - active_loop: transaction_form
+  steps:
+  - action: transaction_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_make_transaction
