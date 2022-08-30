@@ -22,11 +22,10 @@ echo "Finished migrate"
 
 pip install ./en_core_web_md-3.4.0.tar.gz
 
-# python manage.py runserver localhost:8000
 
-#echo "Starting Rasa Train model"
-#rasa train
-#echo "Finised Rasa Train"
+echo "Starting Rasa Train model"
+rasa train
+echo "Finised Rasa Train"
 
 
 rasa run -m models --enable-api --cors "*" --debug & rasa run actions &

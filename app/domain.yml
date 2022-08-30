@@ -35,9 +35,9 @@ slots:
     mappings:
     - entity: amount-of-money
       type: from_entity
-      conditions:
-      - active_loop: transaction_form
-        requested_slot: amount-of-money
+      # conditions:
+      # - active_loop: transaction_form
+      #   requested_slot: amount-of-money
     # - intent:
     #   - inform
     #   - transaction_form

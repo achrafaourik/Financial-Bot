@@ -16,3 +16,6 @@ venv/
 
 # django
 app/migrations/*
+
+# rasa
+app/models

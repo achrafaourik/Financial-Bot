@@ -1,15 +1,18 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
     build:
       context: ./app
-      dockerfile: Dockerfile.prod
-    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
+      dockerfile: Dockerfile.production
+    command: gunicorn app.wsgi:application --bind 0.0.0.0:9000
     volumes:
       - static_volume:/home/app/web/staticfiles
+    ports:
+      - "9000:9000"
+      - "5005:5005"
     expose:
-      - 8000
+      - 9000
     env_file:
       - ./.env.prod
     depends_on:
@@ -28,6 +31,10 @@ services:
       - "1337:80"
     depends_on:
       - web
+  duckling:
+    image: rasa/duckling
+    ports:
+      - "8000:8000"
 
 volumes:
   postgres_data:
