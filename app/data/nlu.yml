@@ -67,6 +67,9 @@ nlu:
     - how to create a [credit](account_type)
     - make accnt
     - create accont
+    - i would like to me an account
+    - i would like to make a [savings](account_type) account
+    - i would like to make a [credit](account_type) account
 
 - intent: chitchat
   examples: |

@@ -26,10 +26,6 @@ services:
     image: rasa/duckling
     ports:
       - "8000:8000"
-  rasa-x:
-    image: rasa/rasa-x
-    ports:
-      
   # action_server:
   # image: rasa/rasa-sdk:latest
   #   build:

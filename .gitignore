@@ -170,6 +170,8 @@ app/results/
 
 # django
 app/*/migrations/*
+app/static/
 
 .idea/
 .vscode/
+

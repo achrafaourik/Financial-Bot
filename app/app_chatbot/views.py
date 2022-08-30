@@ -7,7 +7,7 @@ import json
 
 
 def index(request):
-    return render(request, "chatroom.html")
+    return render(request, "index.html")
 
 
 class NLPView(GenericAPIView):

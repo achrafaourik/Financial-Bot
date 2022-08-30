@@ -123,5 +123,5 @@ class ActionMakeTransaction(Action):
             dispatcher.utter_message(text='There is no such transaction type')
 
         return [SlotSet("transaction_type", None),
-                SlotSet("transaction_amount", None),
+                SlotSet("amount-of-money", None),
                 SlotSet("account_number", None)]
