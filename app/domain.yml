@@ -88,8 +88,8 @@ responses:
       - title: "Withdrawal"
         payload: '/make_transaction{{"transaction_type":"withdrawal"}}'
 
-  utter_ask_transaction_form_account_number:
-    - text: "On which account would you like to make the transaction?"
+  # utter_ask_transaction_form_account_number:
+  #   - text: "On which account would you like to make the transaction?"
 
   utter_ask_transaction_form_amount-of-money:
     - text: "What is the amount of the transaction to be made?"
@@ -110,6 +110,7 @@ actions:
 - action_account_type
 - action_check_balance
 - action_make_transaction
+- action_ask_transaction_form_account_number
 
 
 forms:
