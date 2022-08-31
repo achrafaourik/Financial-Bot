@@ -26,6 +26,6 @@ python -m spacy download en_core_web_md
 rasa train
 #echo "Finised Rasa Train"
 
-rasa run -m models --enable-api --cors "*" --debug & rasa run actions &
+rasa run -m models --enable-api --cors "*" & rasa run actions &
 
 exec "$@"
