@@ -111,7 +111,6 @@ class ActionMakeTransaction(Action):
                     "transaction_type": transaction_type,
                     "transaction_amount": transaction_amount}
 
-
             r = requests.post('http://localhost:9000/api/banking/transactions/',
                               json=data,
                               headers={'Authorization': 'Token ' + self.token})
