@@ -141,12 +141,13 @@ class ActionAskAccountNumber(Action):
         response = json.loads(r.text)
 
         buttons = [{'payload': str(x['id']),
-                    'title': 'Account N°: ' + str(x['id'])} for x in response]
+                    'title': x['account_type'].capitalize() + ' account N°: ' + str(x['id'])} for x in response]
 
         # buttons = [{'payload': '/make_transaction{{"account_number": "' + str(x['id']) + '"}}',
         #             'title': 'Account N°: ' + str(x['id'])} for x in response]
 
         dispatcher.utter_message(
-            text='Here are the following available accounts: ', buttons=buttons)
+            text='Here are the available accounts: ',
+            buttons=buttons)
 
         return []
