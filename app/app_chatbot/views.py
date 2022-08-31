@@ -14,8 +14,6 @@ class NLPView(GenericAPIView):
     """Rasa Chatbot POST API view"""
     def post(self, request):
         data = request.data
-        user = data['sender']
-        message = data['message'].strip(' ')
         r = requests.post('http://localhost:5005/webhooks/rest/webhook', json=data)
         res = json.loads(r.text)
         print(res)

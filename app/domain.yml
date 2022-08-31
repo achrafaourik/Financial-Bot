@@ -66,12 +66,27 @@ slots:
 responses:
   utter_ask_account_form_account_type:
     - text: "What type of bank account would you like to create?"
+      buttons:
+      - title: "Savings account"
+        payload: '/create_bank_account{{"account_type":"savings"}}'
+      - title: "Credit account"
+        payload: '/create_bank_account{{"account_type":"credit"}}'
 
   utter_ask_balance_form_account_type:
     - text: "What type of bank account would you like to see the balance of?"
+      buttons:
+      - title: "Savings accounts balance"
+        payload: '/account_balance{{"account_type":"savings"}}'
+      - title: "Credit accounts balance"
+        payload: '/account_balance{{"account_type":"credit"}}'
 
   utter_ask_transaction_form_transaction_type:
     - text: "What type of transaction would you like to make?"
+      buttons:
+      - title: "Deposit"
+        payload: '/make_transaction{{"transaction_type": "deposit"}}'
+      - title: "Withdrawal"
+        payload: '/make_transaction{{"transaction_type":"withdrawal"}}'
 
   utter_ask_transaction_form_account_number:
     - text: "On which account would you like to make the transaction?"

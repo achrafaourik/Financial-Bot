@@ -17,7 +17,7 @@ import time
 
 
 def create_user():
-    time.sleep(60)
+    time.sleep(60)  # wait for the django server to start before populating the db
     test_user = {
         "email": "user@example.com",
         "password": "string",

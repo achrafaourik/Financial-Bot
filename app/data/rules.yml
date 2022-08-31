@@ -44,7 +44,6 @@ rules:
     - requested_slot: null
   - action: action_check_balance
 
-
 - rule: activate transaction form
   steps:
     - intent: make_transaction

@@ -118,6 +118,7 @@ nlu:
     - what is my balance in my [savings](account_type) account
     - my balance [savings](account_type)
     - my current balance [creidt](account_type) account
+    - how much money do i have on my [credit](account_type) account
 
 
 - intent: make_transaction
@@ -131,6 +132,10 @@ nlu:
     - can i [deposit](transaction_type) 10 bucks to my [savings](account_type) account
     - help me make a transaction to my [credit](account_type) account
     - show me how to [save](transaction_type) my money
+    - make a 30$ [deposit](transaction_type)
+    - perform a 26$ [withdrawal](transaction_type)
+    - make a [deposit](transaction_type)
+    - make a [withdrawal](transaction_type)
 
 
 - intent: inform
