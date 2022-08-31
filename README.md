@@ -14,6 +14,4 @@ for the production version (which includes nginx), run the following command:
 docker-compose -f docker-compose.prod.yml up --build
 ```
 
-you can access the bot by going to the following address:
-
-<a href="http://localhost:9000/bot/index">http://localhost:9000/bot/index</a>
+you can access the bot by going to the following address: <a target="_blank" href="http://localhost:9000/bot/index ">http://localhost:9000/bot/index</a>
