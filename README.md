@@ -20,11 +20,11 @@
 
 ## ⚠️ Prerequisites
 
-In order to be able to work with this project, Docker and Docker-Compose have to be installed on the machine.
+In order to be able to work with this project, `Docker` and `docker-compose` have to be installed on the host machine.
 
 ### Install Docker
 
-The official [Docker documentation](https://docs.docker.com/engine/) provies enough details to properly install Docker on your operating system. Please note that docker-compose should also be installed alongside with Docker.
+The official [Docker documentation](https://docs.docker.com/engine/) provies enough details to properly install `Docker` on your operating system. Please note that `docker-compose` should also be installed too.
 
 
 ## ⚡ Quick Setup
