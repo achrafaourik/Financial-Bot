@@ -5,11 +5,11 @@
 
 
  ## 🛠 Features
-- [x] Basic E-commerce FAQ
-- [x] Basic chitchats
-- [x] Out of Scope
-- [x] Contact us form
-- [x] Send Emails
+- [x] Create bank accounts (**Savings** and **Credit**)
+- [x] Check the bank accounts balance
+- [x] Make a transaction (**Deposit** and **Withdrawal**)
+- [x] Answer FAQ questions
+- [x] Chitchat with users
 
 
 ongoing rasa chatbot using docker, rasa, nginx, django and postgres.
