@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/github/repo-size/achrafaourik/financial_bot">
 </p>
 
-## 🛈 About
+## ℹ️ About
 
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
