@@ -12,7 +12,7 @@
 </p>
 
 ## ℹ️ About
-In this project, you will find a chatbot that is capable of creating bank accounts, checking their balance and performing transactions on these accounts.
+In this project, you will find a chatbot that is capable of **creating bank accounts**, **checking their balance** and **performing transactions** on these accounts.
 
 Such feats have been achieved by using the  following frameworks:
 - `rasa` for the **Natural Language Processing** part of the project which is responsible for the **intent classification** (predict what the user **intends** to say) as well as `entity` and `slot` **filling** (collect the information required from the user to complete certain tasks).
@@ -24,6 +24,9 @@ Such feats have been achieved by using the  following frameworks:
 - `postgresql` used as a **database server** for storing users data.
 - `docker` used for creating a **standardized environment** which ensures that all dependencies, code and libraries are the same across all containers made using the same `Dockerfile`.
 - `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
+
+## ⚛️ Demo
+
 
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
