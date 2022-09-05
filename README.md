@@ -18,6 +18,15 @@
 - [x] Answer FAQ questions
 - [x] Chitchat with users
 
+## ⚠️ Prerequisites
+
+In order to be able to work with this project, Docker and Docker-Compose have to be installed on the machine.
+
+### Install Docker
+
+The official [Docker documentation](https://docs.docker.com/engine/) provies enough details to properly install Docker on your operating system. Please note that docker-compose should also be installed alongside with Docker.
+
+
 ## ⚡ Quick Setup
 
 ### Development Version Build
@@ -49,6 +58,6 @@ docker-compose run --entrypoint="" --rm app sh -c "python manage.py wait_for_db 
 - Test Rasa Features
 
 ```
-docker-compose run --entrypoint="" --rm app sh -c "rasa test"
+docker-compose run --entrypoint="" --rm app sh -c "python manage.py wait_for_db && python manage.py makemigrations && rasa test"
 ```
 
