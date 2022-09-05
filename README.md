@@ -26,7 +26,9 @@ Such feats have been achieved by using the  following frameworks:
 - `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
 
 ## ⚛️ Demo
-<p align="center"><img src="./assets/financial_bot.gif" width="10%"></p>
+<div align="center">
+<img align="center" src="./assets/financial_bot.gif" alt="demonstration">
+</div>
 
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
