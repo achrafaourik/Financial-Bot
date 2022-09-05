@@ -20,10 +20,10 @@ Such feats have been achieved by using the  following frameworks:
 - `nginx` which serves both of the following functions:
     - **load balancer** for intelligently routing incoming requests to the available workers.
     - **serving static files**.
-- `gunicorn` used as a **web server** as an interface between `django` and `nginx` that processes the HTTP requests between these two.
+- `gunicorn` used as a **web server** as an interface between `django` and `nginx` that processes the **HTTP** requests between these two.
 - `postgresql` used as a **database server** for storing users data.
-- `docker` used for creating a **standardized environment** which ensures that all dependencies, code and libraries are the same as in the original environment.
-- `docker-compose` which allows to **define and spin multiple containers**  at once and have them share the same network interface.
+- `docker` used for creating a **standardized environment** which ensures that all dependencies, code and libraries are the same across all containers made using the same `Dockerfile`.
+- `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
 
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
