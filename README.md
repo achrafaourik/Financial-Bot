@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/repo-size/achrafaourik/chatbot_rasa">
+    <img src="https://img.shields.io/github/repo-size/achrafaourik/financial_bot">
 </p>
 
  ## 🛠 Features
@@ -24,7 +24,7 @@ In order to be able to work with this project, `Docker` and `docker-compose` hav
 
 ### Install Docker
 
-The official [Docker documentation](https://docs.docker.com/engine/) provies enough details to properly install `Docker` on your operating system. Please note that `docker-compose` should also be installed too.
+The official [Docker documentation](https://docs.docker.com/engine/) provides enough details to properly install `Docker` on your operating system. Please note that `docker-compose` should also be installed too.
 
 
 ## ⚡ Quick Setup
