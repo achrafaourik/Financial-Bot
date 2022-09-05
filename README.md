@@ -1,4 +1,4 @@
-<p align="center"><img src="./images/bot.png" width="10%"></p>
+<p align="center"><img src="./assets/bot.png" width="10%"></p>
 <h1 align="center">Financial Helper Bot 💬</h1>
 <p align="center">Financial Helper Bot which can create bank accounts,
  deposit and withdraw money, check the accounts balance, answer FAQ questions and chitchat with users.</p>
@@ -12,11 +12,11 @@
 </p>
 
 ## ℹ️ About
-In this project, you will find a chatbot that is capable of **creating bank accounts**, **checking their balance** and **performing transactions** on these accounts.
+In this project, you will find a chatbot that is capable of **creating bank accounts**, **checking their balance** and **performing transactions** on these accounts. It is also capable of doing other non-financial related tasks such as **answering FAQ questions** and **chitchat** with users.
 
 Such feats have been achieved by using the  following frameworks:
 - `rasa` for the **Natural Language Processing** part of the project which is responsible for the **intent classification** (predict what the user **intends** to say) as well as `entity` and `slot` **filling** (collect the information required from the user to complete certain tasks).
-- `django` as the **backend** of the project which helped to create multiple API endpoints to fetch (using **GET** requests) bank accounts data and also to create bank accounts and performing transacctions (using **POST** requests).
+- `django` as the **backend** of the project which helped to create multiple **API endpoints** to fetch (using **GET** requests) bank accounts data and also to create bank accounts and performing transactions (using **POST** requests).
 - `nginx` which serves both of the following functions:
     - **load balancer** for intelligently routing incoming requests to the available workers.
     - **serving static files**.
@@ -26,7 +26,7 @@ Such feats have been achieved by using the  following frameworks:
 - `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
 
 ## ⚛️ Demo
-
+<p align="center"><img src="./assets/financial_bot.gif" width="10%"></p>
 
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
