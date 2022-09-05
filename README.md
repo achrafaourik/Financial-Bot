@@ -26,8 +26,8 @@ In order to run the development build (without nginx), run the following command
 docker-compose up --build
 ```
 
-You can then access the bot locally by going to the following address: <br/>
-http://localhost:9000/bot/index
+You can then access the bot locally by going to the following address: 
+<p align="center">http://localhost:9000/bot/index</p>
 
 ### Deployment Version Build
 In order to run the development build (using nginx), run the following command:
@@ -36,7 +36,7 @@ In order to run the development build (using nginx), run the following command:
 docker-compose -f docker-compose.prod.yml up --build
 ```
 
-You can then access the bot locally by going to the following address: <br/>
-http://localhost:9000/bot/index
+You can then access the bot locally by going to the following address:
+<p align="center">http://localhost:9000/bot/index</p>
 
 
