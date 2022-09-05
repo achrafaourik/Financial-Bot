@@ -26,7 +26,7 @@ In order to run the development build (without nginx), run the following command
 docker-compose up --build
 ```
 
-You can then access the bot locally by going to the following address:<a href="http://localhost:9000/bot/index">http://localhost:9000/bot/index</a>
+You can then access the bot locally by going to the following address: <a href="http://localhost:9000/bot/index">http://localhost:9000/bot/index</a>
 
 ### Deployment Version Build
 In order to run the development build (using nginx), run the following command:
@@ -35,5 +35,20 @@ In order to run the development build (using nginx), run the following command:
 docker-compose -f docker-compose.prod.yml up --build
 ```
 
-You can then access the bot locally by going to the following address:<a href="http://localhost:9000/bot/index">http://localhost:9000/bot/index</a>
+You can then access the bot locally by going to the following address: <a href="http://localhost:9000/bot/index">http://localhost:9000/bot/index</a>
+
+
+## 🧪 Testing
+
+- Test Django Features
+
+```
+docker-compose run --entrypoint="" --rm app sh -c "python manage.py wait_for_db && python manage.py makemigrations && python manage.py test"
+```
+
+- Test Rasa Features
+
+```
+docker-compose run --entrypoint="" --rm app sh -c "rasa test"
+```
 
