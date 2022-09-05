@@ -169,7 +169,6 @@ app/rasa.db-wal/
 app/results/
 
 # django
-app/*/migrations/*
 app/static/
 
 .idea/

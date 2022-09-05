@@ -14,8 +14,6 @@ app/*/*/*/__pycache__/
 .venv/
 venv/
 
-# django
-app/migrations/*
 
 # rasa
 app/models

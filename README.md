@@ -34,7 +34,7 @@ Such feats have been achieved by using the  following frameworks:
 - [x] Create bank accounts (**Savings** and **Credit**)
 - [x] Check the bank accounts balance
 - [x] Make a transaction (**Deposit** and **Withdrawal**)
-- [ ] Browse the transactions
+- [ ] Browse the transactions (ongoing)
 - [x] Answer FAQ questions
 - [x] Chitchat with users
 
