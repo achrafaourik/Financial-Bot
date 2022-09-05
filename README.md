@@ -11,6 +11,8 @@
     <img src="https://img.shields.io/github/repo-size/achrafaourik/financial_bot">
 </p>
 
+## 🛈 About
+
  ## 🛠 Features
 - [x] Create bank accounts (**Savings** and **Credit**)
 - [x] Check the bank accounts balance
@@ -24,7 +26,7 @@ In order to be able to work with this project, `Docker` and `docker-compose` hav
 
 ### Install Docker
 
-The official [Docker documentation](https://docs.docker.com/engine/) provides enough details to properly install `Docker` on your operating system. Please note that `docker-compose` should also be installed too.
+The official [Docker documentation](https://docs.docker.com/engine/install/) provides enough details to properly install `Docker` on your operating system. Please note that `docker-compose` should also be installed too.
 
 
 ## ⚡ Quick Setup

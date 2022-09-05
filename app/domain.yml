@@ -64,9 +64,12 @@ slots:
 
 
 responses:
-  utter_welcome:
-    - text: "Hello there! I am you personal financial bot.
-        I can help you create an account, check its balance and make deposits and withdrawals!"
+  utter_greet:
+    - text: "Hello there! I am your personal financial bot.
+        I can help you create a bank account, check its balance and make deposits and withdrawals. But first, you have to create a bank account!"
+      buttons:
+      - title: "Create a bank account"
+        payload: '/create_bank_account'
 
   utter_ask_account_form_account_type:
     - text: "What type of bank account would you like to create?"
@@ -97,9 +100,6 @@ responses:
 
   utter_ask_transaction_form_amount-of-money:
     - text: "What is the amount of the transaction to be made?"
-
-  utter_greet:
-  - text: "Hey! How are you?"
 
   utter_goodbye:
   - text: "Bye"
