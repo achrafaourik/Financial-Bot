@@ -88,3 +88,9 @@ docker-compose run --entrypoint="" --rm app sh -c "python manage.py wait_for_db 
 docker-compose run --entrypoint="" --rm app sh -c "python manage.py wait_for_db && python manage.py makemigrations && rasa test"
 ```
 
+### 👋 Contact Me
+
+| Contact Method     |                                           |
+|--------------------|-------------------------------------------|
+| Email              | achrafaourik@gmail.com                    |
+| LinkedIn           | https://www.linkedin.com/in/achrafaourik/ |
