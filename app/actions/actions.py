@@ -53,9 +53,12 @@ class ActionCreateAccountType(Action):
             r = requests.post('http://localhost:9000/api/banking/accounts/',
                               json=data,
                               headers={'Authorization': 'Token ' + self.token})
-            response = str(json.loads(r.text))
+            response = json.loads(r.text)
 
-            dispatcher.utter_message(text=response)
+            dispatcher.utter_message(
+                text='The {} account N° {} has been created properly.'.format(
+                    account_type, response['id']))
+
         else:
             dispatcher.utter_message(text='There is no such account type')
 
@@ -78,9 +81,14 @@ class ActionCheckBalance(Action):
 
             r = requests.get('http://localhost:9000/api/banking/accounts/?account_type=' + account_type,
                               headers={'Authorization': 'Token ' + self.token})
-            response = str(json.loads(r.text))
+            response = json.loads(r.text)
 
-            dispatcher.utter_message(text=response)
+            print(type(response))
+
+            for account in response:
+                dispatcher.utter_message(
+                    text="The {} account N° {}'s balance is : {}$.".format(
+                    account['account_type'], account['id'], account['account_balance']))
         else:
             dispatcher.utter_message(text='There is no such account type')
 
@@ -114,9 +122,8 @@ class ActionMakeTransaction(Action):
             r = requests.post('http://localhost:9000/api/banking/transactions/',
                               json=data,
                               headers={'Authorization': 'Token ' + self.token})
-            response = str(json.loads(r.text))
 
-            dispatcher.utter_message(text=response)
+            dispatcher.utter_message(text='Done!')
 
         else:
             dispatcher.utter_message(text='There is no such transaction type')
@@ -124,6 +131,7 @@ class ActionMakeTransaction(Action):
         return [SlotSet("transaction_type", None),
                 SlotSet("amount-of-money", None),
                 SlotSet("account_number", None)]
+
 
 class ActionAskAccountNumber(Action):
     token = token
