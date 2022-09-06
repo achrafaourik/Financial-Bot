@@ -25,10 +25,13 @@ Such feats have been achieved by using the  following frameworks:
 - `docker` used for creating a **standardized environment** which ensures that all dependencies, code and libraries are the same across all containers made using the same `Dockerfile`.
 - `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
 
+This is all summarized in the following graph:
 <p align="center"><img src="./assets/graph_docker.jpg"></p>
 
 
 ## ⚛️ Demo
+A quick display demo of how the bot works is presented in the following:
+
 <div align="center">
 <img align="center" src="./assets/financial_bot.gif" alt="demonstration">
 </div>
