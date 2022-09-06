@@ -73,6 +73,7 @@ docker-compose -f docker-compose.prod.yml up --build
 
 You can then access the bot locally by going to the following address: <a href="http://localhost:1337/bot/index">http://localhost:1337/bot/index</a>
 
+⚠️ Please note: it takes about 2 minutes for the project to start running properly.
 
 ## 🧪 Testing
 
