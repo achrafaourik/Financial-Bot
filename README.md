@@ -16,7 +16,7 @@ In this project, you will find a chatbot that is capable of **creating bank acco
 
 Such feats have been achieved by using the  following frameworks:
 - `rasa` for the **Natural Language Processing** part of the project which is responsible for the **intent classification** (predict what the user **intends** to say) as well as `entity` and `slot` **filling** (collect the information required from the user to complete certain tasks).
-- `django` as the **backend** of the project which helped to create multiple **API endpoints** to fetch (using **GET** requests) bank accounts data and also to create bank accounts and performing transactions (using **POST** requests).
+- `django` as the **backend** of the project which helped to create multiple **API endpoints** to fetch (using **GET** requests) bank accounts data and also to create bank accounts and performing transactions (using **POST** requests). All of these requests are made using **Token Authentication** and the results are filtered for the authenticated user.
 - `nginx` which serves both of the following functions:
     - **load balancer** for intelligently routing incoming requests to the available workers.
     - **serving static files**.
@@ -24,6 +24,9 @@ Such feats have been achieved by using the  following frameworks:
 - `postgresql` used as a **database server** for storing users data.
 - `docker` used for creating a **standardized environment** which ensures that all dependencies, code and libraries are the same across all containers made using the same `Dockerfile`.
 - `docker-compose` which allows to **define and spin multiple containers**  at once and have them **share the same network** interface.
+
+<p align="center"><img src="./assets/graph_docker.jpg"></p>
+
 
 ## ⚛️ Demo
 <div align="center">
